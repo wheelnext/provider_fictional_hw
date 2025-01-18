@@ -1,0 +1,12 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "provider_fictional_hw"
+version = "1.0.0"
+description = "A plugin for the `mockpip`"
+dependencies = []
+
+[project.entry-points."mockpip.plugins"]
+fictional_hw = "provider_fictional_hw.plugin:FictionalHWPlugin"
