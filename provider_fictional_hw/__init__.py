@@ -2,7 +2,7 @@
 
 import importlib.metadata
 
-from provider_fictional_hw.plugin import FictionalHWPlugin
+# from provider_fictional_hw.plugin import FictionalHWPlugin
 
 __all__ = ["FictionalHWPlugin", "__version__"]
 
