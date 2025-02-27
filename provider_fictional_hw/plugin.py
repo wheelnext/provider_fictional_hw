@@ -11,24 +11,24 @@ class FictionalHWPlugin:
     def _get_supported_architectures(self) -> list[str]:
         """Lookup the system to decide what `architecture` are supported on this system.
         Returns a list of strings in order of priority."""
-        return ["HAL9000", "tars", "mother"]
+        return ["deepthought", "HAL9000"]
 
     def _get_supported_compute_capability(self) -> list[str]:
         """Lookup the system to decide what `compute_capability` are supported on this
         system.
         Returns a list of strings in order of priority."""
-        return ["8", "2", "0"]
+        return ["10", "6", "2"]
 
     def _get_supported_compute_accuracy(self) -> list[str]:
         """Lookup the system to decide what `compute_accuracy` are supported on this
         system.
         Returns a list of strings in order of priority."""
-        return ["1000000000", "100000", "25"]
+        return ["1000", "0", "10"]
 
     def _get_supported_humor(self):
         """Lookup the system to decide what `humor` are supported on this system.
         Returns a list of strings in order of priority."""
-        return ["15", "1", "6"]
+        return ["0", "2"]
 
     def run(self) -> ProviderConfig:
         keyconfigs = []
