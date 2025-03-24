@@ -30,7 +30,7 @@ class FictionalHWPlugin:
         Returns a list of strings in order of priority."""
         return ["0", "2"]
 
-    def run(self) -> ProviderConfig:
+    def get_supported_configs(self) -> ProviderConfig:
         keyconfigs = []
 
         # Top Priority
