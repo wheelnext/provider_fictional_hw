@@ -1,7 +1,8 @@
-from variantlib.config import KeyConfig
-from variantlib.config import ProviderConfig
+from __future__ import annotations
 
 from provider_fictional_hw import __version__
+from variantlib.models.provider import ProviderConfig
+from variantlib.models.provider import VariantFeatureConfig
 
 
 class FictionalHWPlugin:
@@ -35,19 +36,23 @@ class FictionalHWPlugin:
 
         # Top Priority
         if (values := self._get_supported_architectures()) is not None:
-            keyconfigs.append(KeyConfig(key="architecture", values=values))
+            keyconfigs.append(VariantFeatureConfig(name="architecture", values=values))
 
         # Second Priority
         if (values := self._get_supported_compute_capability()) is not None:
-            keyconfigs.append(KeyConfig(key="compute_capability", values=values))
+            keyconfigs.append(
+                VariantFeatureConfig(name="compute_capability", values=values)
+            )
 
         # Third Priority
         if (values := self._get_supported_humor()) is not None:
-            keyconfigs.append(KeyConfig(key="humor", values=values))
+            keyconfigs.append(VariantFeatureConfig(name="humor", values=values))
 
         # Fourth Priority
         if (values := self._get_supported_compute_accuracy()) is not None:
-            keyconfigs.append(KeyConfig(key="compute_accuracy", values=values))
+            keyconfigs.append(
+                VariantFeatureConfig(name="compute_accuracy", values=values)
+            )
 
         if keyconfigs:
             return ProviderConfig(
