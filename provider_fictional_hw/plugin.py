@@ -1,13 +1,10 @@
 from __future__ import annotations
 
-from provider_fictional_hw import __version__
-from variantlib.models.provider import ProviderConfig
 from variantlib.models.provider import VariantFeatureConfig
 
 
 class FictionalHWPlugin:
-    __provider_name__ = "fictional_hw"
-    __version__ = __version__
+    namespace = "fictional_hw"
 
     def _get_supported_architectures(self) -> list[str]:
         """Lookup the system to decide what `architecture` are supported on this system.
@@ -31,7 +28,7 @@ class FictionalHWPlugin:
         Returns a list of strings in order of priority."""
         return ["0", "2"]
 
-    def get_supported_configs(self) -> ProviderConfig:
+    def get_supported_configs(self) -> list[VariantFeatureConfig]:
         keyconfigs = []
 
         # Top Priority
@@ -54,10 +51,17 @@ class FictionalHWPlugin:
                 VariantFeatureConfig(name="compute_accuracy", values=values)
             )
 
-        if keyconfigs:
-            return ProviderConfig(
-                provider=FictionalHWPlugin.__provider_name__,
-                configs=keyconfigs,
-            )
+        return keyconfigs
 
-        return None
+    def get_all_configs(self) -> list[VariantFeatureConfig]:
+        return [
+            VariantFeatureConfig(
+                name="architecture", values=["deepthought", "HAL9000", "mother", "tars"]
+            ),
+            VariantFeatureConfig(
+                name="compute_capability",
+                values=list(range(0, 11, 2)),
+            ),
+            VariantFeatureConfig(name="humor", values=list(range(0, 11, 2))),
+            VariantFeatureConfig(name="compute_accuracy", values=list(range(0, 11, 2))),
+        ]
