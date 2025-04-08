@@ -60,8 +60,12 @@ class FictionalHWPlugin:
             ),
             VariantFeatureConfig(
                 name="compute_capability",
-                values=list(range(0, 11, 2)),
+                values=[str(x) for x in range(0, 11, 2)],
             ),
-            VariantFeatureConfig(name="humor", values=list(range(0, 11, 2))),
-            VariantFeatureConfig(name="compute_accuracy", values=list(range(0, 11, 2))),
+            VariantFeatureConfig(
+                name="humor", values=[str(x) for x in range(0, 11, 2)]
+            ),
+            VariantFeatureConfig(
+                name="compute_accuracy", values=[str(x) for x in range(0, 11, 2)]
+            ),
         ]
