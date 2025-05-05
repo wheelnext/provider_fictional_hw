@@ -1,6 +1,14 @@
 from __future__ import annotations
 
-from variantlib.models.provider import VariantFeatureConfig
+from dataclasses import dataclass
+
+
+@dataclass(frozen=True)
+class VariantFeatureConfig:
+    name: str
+
+    # Acceptable values in priority order
+    values: list[str]
 
 
 class FictionalHWPlugin:
