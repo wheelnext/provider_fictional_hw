@@ -17,7 +17,7 @@ class FictionalHWPlugin:
     def _get_supported_architectures(self) -> list[str]:
         """Lookup the system to decide what `architecture` are supported on this system.
         Returns a list of strings in order of priority."""
-        return ["deepthought", "HAL9000"]
+        return ["deepthought", "hal9000"]
 
     def _get_supported_compute_capability(self) -> list[str]:
         """Lookup the system to decide what `compute_capability` are supported on this
@@ -64,7 +64,7 @@ class FictionalHWPlugin:
     def get_all_configs(self) -> list[VariantFeatureConfig]:
         return [
             VariantFeatureConfig(
-                name="architecture", values=["deepthought", "HAL9000", "mother", "tars"]
+                name="architecture", values=["deepthought", "hal9000", "mother", "tars"]
             ),
             VariantFeatureConfig(
                 name="compute_capability",
